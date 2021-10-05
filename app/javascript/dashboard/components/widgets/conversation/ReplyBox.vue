@@ -173,7 +173,11 @@ export default {
         : this.$t('CONVERSATION.FOOTER.MSG_INPUT');
     },
     isMessageLengthReachingThreshold() {
-      return this.message.length > this.maxLength - 50;
+      return (
+        this.isMessageEmpty ||
+        this.message.length === 0 ||
+        this.message.length > this.maxLength - 50
+      );
     },
     charactersRemaining() {
       return this.maxLength - this.message.length;
